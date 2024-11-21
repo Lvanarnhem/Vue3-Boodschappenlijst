@@ -79,15 +79,17 @@ button:focus-visible {
 }
 
 .amount {
-  margin-left:20px;
   width: 20px;
   border: none;
   background-color: beige;
 }
 
 .price {
-  margin-left:20px;
   width: 40px;
   border: none;
   background-color: beige;
+}
+
+.bold {
+  font-weight: bold;
 }
