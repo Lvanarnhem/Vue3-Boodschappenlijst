@@ -1,27 +1,32 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
 const groceries = ref([
   {index:0, name:"Appels", price:4.40, amount:0}, 
-  {index:1, name:"Bananen", price:1.50, amount:0}, 
+  {index:1, name:"Bananen", price:1.52, amount:0}, 
   {index:2, name:"Snoep", price:3.50, amount:0}, 
   {index:3, name:"Thee", price:1.90, amount:0},
 ])
 
-const amount = defineModel({default:0})
-
 const subtotal = (item, index) => {
-  console.log(amount[index])
-  const sum = item.price * amount.value
+  console.log(index)
+  const sum = item.price * index
   return sum.toFixed(2)
 }
 
-const total = computed(() => {
-  let sum = 0
-  for (const grocery in groceries.value) {
-    sum +=  subtotal(grocery, grocery.index)
-    console.log(groceries)
-    return sum
+const sumOFAllPrices = (array) => {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+  sum += Number(array[i]);
+}
+  return sum.toFixed(2)
+}
+
+const fullTotal = computed(() => {
+  const allPrices = reactive([])
+  for (let i = 0; i < groceries.value.length; i++) {
+    allPrices.push(subtotal(groceries.value[i], groceries.value[i].amount),)    
   }
+  return sumOFAllPrices(allPrices)
 })
 
 
@@ -35,9 +40,9 @@ const total = computed(() => {
   <th>Subtotaal</th>
   <tr v-for="(item, index) in groceries">
     <td >{{ item.name }}</td>
-    <td><input v-model.number="amount" id="index" value=item.amount class="amount" type="number"></td>
+    <td><input v-model.number="item.amount" id="index" value=item.amount class="amount" type="number"></td>
     <td>{{ item.price }}</td>
-    <td>{{ subtotal(item, item.index) }}</td>
+    <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
       <!-- Functie totalprice die alles bij elkaar optelt -->
     </td>
@@ -48,7 +53,7 @@ const total = computed(() => {
     </td>
     <td></td>
     <td></td>
-    <td class="bold"> {{total}}</td>
+    <td class="bold"> {{fullTotal}}</td>
   </tr>
  </table>
 </template>
