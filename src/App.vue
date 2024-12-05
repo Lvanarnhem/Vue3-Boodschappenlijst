@@ -1,5 +1,6 @@
 <script setup>
 import {ref } from 'vue'
+
 import GroceriesTable from './components/GroceriesTable.vue';
 
 const groceries = ref([
@@ -12,6 +13,13 @@ const groceries = ref([
 
 <template>
   <GroceriesTable :groceries="groceries"/>
+  <nav>
+    <RouterLink to="/overview">Go to Overview</RouterLink>
+    <RouterLink to="/create">Go to Create</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 
