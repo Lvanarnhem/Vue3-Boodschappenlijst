@@ -18,8 +18,7 @@ const sumOFAllPrices = (array) => {
 
 const fullTotal = computed(() => {
   const allPrices = reactive([])
-  //Als groceries geen prop was geweest dan had het groceries.value.length moeten zijn
-  for (let i = 0; i < props.groceries.length; i++) {
+  for (let i = 0; i < Object.values(props.groceries).length; i++) {
     allPrices.push(subtotal(props.groceries[i], props.groceries[i].amount),)    
   }
   return sumOFAllPrices(allPrices)

@@ -21,6 +21,11 @@ nav {
   padding: 10px;
 }
 
+label, input {
+  display:block;
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;
