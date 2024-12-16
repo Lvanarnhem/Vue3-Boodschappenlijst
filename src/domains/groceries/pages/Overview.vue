@@ -1,7 +1,7 @@
 <script setup>
-import {ref } from 'vue'
+import { ref } from 'vue'
 
-import GroceriesTable from './components/GroceriesTable.vue';
+import GroceriesTable from '../components/GroceriesTable.vue';
 
 const groceries = ref([
     {index:0, name:"Appels", price:4.40, amount:0}, 

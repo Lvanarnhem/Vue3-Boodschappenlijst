@@ -4,7 +4,6 @@ import {ref, computed, reactive } from 'vue'
 const props = defineProps(['groceries']);
 
 const subtotal = (item, index) => {
-  console.log(index)
   const sum = item.price * index
   return sum.toFixed(2)
 }
@@ -41,7 +40,6 @@ const fullTotal = computed(() => {
     <td>{{ item.price }}</td>
     <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
-      <!-- Functie totalprice die alles bij elkaar optelt -->
     </td>
   </tr>
   <tr>

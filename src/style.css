@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav {
+  padding: 15px;
+}
+
+.routerlink {
+  padding: 10px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
