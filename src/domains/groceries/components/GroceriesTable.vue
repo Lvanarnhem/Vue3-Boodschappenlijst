@@ -1,5 +1,6 @@
 <script setup >
 import {ref, computed, reactive } from 'vue'
+import {router } from './../../../router';
 
 const props = defineProps(['groceries']);
 
@@ -35,10 +36,11 @@ const fullTotal = computed(() => {
   <th>Subtotaal</th>
   <tr v-for="(item) in props.groceries">
     <td >{{ item.name }}</td>
-    <td><input v-model.number="item.amount" value=item.amount class="amount" type="number"></td>
+    <td>{{ item.amount }}</td>
     <td>{{ item.price }}</td>
     <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
+      <button></button>
     </td>
   </tr>
   <tr>

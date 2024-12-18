@@ -5,9 +5,9 @@ import { createRouter } from 'vue-router'
 import { createWebHistory } from "vue-router"
 
 const routes = [
-    { path: '/', component: Overview },
+    { path: '/', name: 'Home', component: Overview },
     { path: '/create', component: Create },
-    { path: '/edit', component: Edit },
+    { path: '/edit', name: 'edit', component: Edit },
   ]
 
   export const router = createRouter({
