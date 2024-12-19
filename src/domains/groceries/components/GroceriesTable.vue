@@ -1,6 +1,7 @@
 <script setup >
 import {ref, computed, reactive } from 'vue'
 import {router } from './../../../router';
+import {getGroceryById} from './../../../store/Groceries.js'
 
 const props = defineProps(['groceries']);
 
@@ -25,7 +26,7 @@ const fullTotal = computed(() => {
   return sumOFAllPrices(allPrices)
 })
 
-
+console.log(getGroceryById(1).value);
 </script>
 
 <template>
@@ -35,12 +36,15 @@ const fullTotal = computed(() => {
   <th>Prijs</th>
   <th>Subtotaal</th>
   <tr v-for="(item) in props.groceries">
-    <td >{{ item.name }}</td>
+    <td>{{ item.name }}</td>
     <td>{{ item.amount }}</td>
     <td>{{ item.price }}</td>
     <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
-      <button></button>
+      <form>
+        <input type="hidden" id="">
+        <button value="edit" @click="emits()">Edit</button>
+      </form>
     </td>
   </tr>
   <tr>
