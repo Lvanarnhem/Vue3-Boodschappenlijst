@@ -14,4 +14,7 @@ export const getAllGroceries = computed(() => groceries.value);
 export const getGroceryById = (id) => computed(() => groceries.value.find(grocery => grocery.id == id));
 
 // Actions
-export const addGrocery = (grocery) => groceries.value.push(grocery);
+export const addGrocery = (grocery) => {
+  grocery.id = Math.max(...groceries.value.map(item => item.id)) + 1;
+  groceries.value.push(grocery);
+};

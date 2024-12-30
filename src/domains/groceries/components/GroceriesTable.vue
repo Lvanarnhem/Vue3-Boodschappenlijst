@@ -4,6 +4,7 @@ import {router } from './../../../router';
 import {getGroceryById} from './../../../store/Groceries.js'
 
 const props = defineProps(['groceries']);
+const emits = defineEmits(['edit']);
 
 const subtotal = (item, index) => {
   const sum = item.price * index
@@ -26,7 +27,6 @@ const fullTotal = computed(() => {
   return sumOFAllPrices(allPrices)
 })
 
-console.log(getGroceryById(1).value);
 </script>
 
 <template>
@@ -42,7 +42,7 @@ console.log(getGroceryById(1).value);
     <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
       <form>
-        <input type="hidden" id="">
+        <input type="hidden" value="{{ item.id }}">
         <button value="edit" @click="emits()">Edit</button>
       </form>
     </td>
