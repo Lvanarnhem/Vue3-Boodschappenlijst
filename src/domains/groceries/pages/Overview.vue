@@ -7,10 +7,14 @@ import {getAllGroceries} from '../../../store/Groceries.js';
 
 const groceries = {...getAllGroceries.value}
 
+const edit = id => {
+    router.push({ name: 'edit',  id});
+}
+
 </script>
 
 <template>
-  <GroceriesTable :groceries="groceries"/>
+  <GroceriesTable :groceries="groceries"  @submit="edit"/>
  
 </template>
 

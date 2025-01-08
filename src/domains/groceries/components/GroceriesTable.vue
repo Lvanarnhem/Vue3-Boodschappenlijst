@@ -43,7 +43,7 @@ const fullTotal = computed(() => {
     <td> 
       <form>
         <input type="hidden" value="{{ item.id }}">
-        <button value="edit" @click="emits()">Edit</button>
+        <button value="edit" @click="emits('submit', item.id)">Edit</button>
       </form>
     </td>
   </tr>
