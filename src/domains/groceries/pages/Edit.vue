@@ -9,5 +9,5 @@ import {ref } from 'vue'
 </script>
 
 <template>
-    <GroceryForm :grocery="newGrocery" @edit="editGrocery" />
+    HELLO
 </template>
