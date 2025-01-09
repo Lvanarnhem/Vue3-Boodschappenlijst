@@ -8,7 +8,7 @@ import {getAllGroceries} from '../../../store/Groceries.js';
 const groceries = {...getAllGroceries.value}
 
 const edit = id => {
-    router.push({ name: 'edit',  id});
+    router.push({ name: 'edit', params:{id: id}});
 }
 
 </script>
