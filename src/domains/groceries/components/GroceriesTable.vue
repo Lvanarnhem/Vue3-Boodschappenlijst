@@ -41,9 +41,11 @@ const fullTotal = computed(() => {
     <td>{{ item.price }}</td>
     <td>{{ subtotal(item, item.amount) }}</td>
     <td> 
-      
-        <button value="edit" @click="emits('submit', item.id)">Edit</button>
-      
+        <button value="edit" @click="emits('submit', item.id)">Edit</button>   
+    </td>
+
+    <td>
+        <button value="delete" @click="emits('delete', item.id)">Delete</button>
     </td>
   </tr>
   <tr>

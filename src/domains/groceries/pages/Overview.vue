@@ -12,10 +12,14 @@ const edit = id => {
     router.push({ name: 'edit', params:{id: id}});
 }
 
+const del = id => {
+    
+}
+
 </script>
 
 <template>
-  <GroceriesTable :groceries="groceries"  @submit="edit"/>
+  <GroceriesTable :groceries="groceries"  @submit="edit" @delete="del"/>
  
 </template>
 

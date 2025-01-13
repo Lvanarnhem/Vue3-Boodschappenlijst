@@ -1,13 +1,28 @@
 <script setup>
 import {ref } from 'vue'
-
-// Grocery by id using the id that's been given in groceriestable
-//use getGroceryById in the store and the id passed through the parameter to get the grocery
 //Then use ^ grocery to call form with newGrocery as a ref
+import { useRoute } from 'vue-router'
+import {router } from './../../../router';
+import {addGrocery} from '../../../store/Groceries.js';
+import GroceryForm from '../components/GroceryForm.vue'
+import { getGroceryById } from '../../../store/Groceries.js';
 
+const route = useRoute()
+const id = route.params.id
+
+const grocery = ref({...getGroceryById(id).value})
+
+const editGrocery = grocery => {
+    addGrocery(grocery);
+    router.push({ name: 'Home' });
+
+}
+
+console.log(grocery.value)
 
 </script>
 
 <template>
-    HELLO
+    <!--Geen addGrocery maar aparte editGrocery functie maken-->
+    <GroceryForm :grocery="grocery" @submit="editGrocery"/>
 </template>

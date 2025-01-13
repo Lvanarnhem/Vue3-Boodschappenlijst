@@ -12,10 +12,14 @@ const groceries = ref([
 // Getters
 export const getAllGroceries = computed(() => groceries.value);
 export const getGroceryById = (id) => computed(() => groceries.value.find(grocery => grocery.id == id));
+export const removeGrocery = (id) => computed(() => 
+  groceryToDelete = groceries.value.find(grocery => grocery.id = id)
+  // Find Index Of en dan splice()
+);
 
 // Actions
 export const addGrocery = (grocery) => {
-  if(grocery.id){groceries.value.push(grocery)}
+  if(grocery.id){groceries.value[grocery.id] = grocery}
   else {
   grocery.id = Math.max(...groceries.value.map(item => item.id)) + 1;
   groceries.value.push(grocery);}
