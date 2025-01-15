@@ -8,19 +8,17 @@ const groceries = ref([
     {id:3, name:"Thee", price:1.90, amount:0},
   ])
 
-
 // Getters
 export const getAllGroceries = computed(() => groceries.value);
 export const getGroceryById = (id) => computed(() => groceries.value.find(grocery => grocery.id == id));
-export const removeGrocery = (id) => computed(() => 
-  groceryToDelete = groceries.value.find(grocery => grocery.id = id)
-  // Find Index Of en dan splice()
-);
+export const removeGrocery = (grocery) => {groceries.value.splice(groceries.value.indexOf(grocery), 1)}
 
 // Actions
+export const updateGrocery = (grocery) => {
+  groceries.value[grocery.id] = grocery;
+};
+
 export const addGrocery = (grocery) => {
-  if(grocery.id){groceries.value[grocery.id] = grocery}
-  else {
   grocery.id = Math.max(...groceries.value.map(item => item.id)) + 1;
-  groceries.value.push(grocery);}
+  groceries.value.push(grocery);
 };

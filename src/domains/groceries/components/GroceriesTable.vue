@@ -4,7 +4,7 @@ import {router } from './../../../router';
 import {getGroceryById} from './../../../store/Groceries.js'
 
 const props = defineProps(['groceries']);
-const emits = defineEmits(['edit']);
+const emits = defineEmits(['edit', 'remove']);
 
 const subtotal = (item, index) => {
   const sum = item.price * index
@@ -45,7 +45,7 @@ const fullTotal = computed(() => {
     </td>
 
     <td>
-        <button value="delete" @click="emits('delete', item.id)">Delete</button>
+        <button value="remove" @click="emits('remove', item)">Remove</button>
     </td>
   </tr>
   <tr>

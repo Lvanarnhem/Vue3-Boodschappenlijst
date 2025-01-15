@@ -1,25 +1,25 @@
 <script setup>
-import { ref, shallowRef } from 'vue'
+import { ref } from 'vue'
 import GroceriesTable from '../components/GroceriesTable.vue'
-import GroceryForm from '../components/GroceryForm.vue'
 import {router} from '../../../router/index.js'
+import {getAllGroceries, removeGrocery} from '../../../store/Groceries.js';
 
-import {getAllGroceries} from '../../../store/Groceries.js';
-
-const groceries = {...getAllGroceries.value}
+const groceries = getAllGroceries
 
 const edit = id => {
     router.push({ name: 'edit', params:{id: id}});
 }
 
-const del = id => {
-    
+const del = grocery => {
+    removeGrocery(grocery);
 }
+
+
 
 </script>
 
 <template>
-  <GroceriesTable :groceries="groceries"  @submit="edit" @delete="del"/>
+  <GroceriesTable :groceries="groceries"  @submit="edit" @remove="del"/>
  
 </template>
 

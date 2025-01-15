@@ -3,7 +3,7 @@ import {ref } from 'vue'
 //Then use ^ grocery to call form with newGrocery as a ref
 import { useRoute } from 'vue-router'
 import {router } from './../../../router';
-import {addGrocery} from '../../../store/Groceries.js';
+import {updateGrocery} from '../../../store/Groceries.js';
 import GroceryForm from '../components/GroceryForm.vue'
 import { getGroceryById } from '../../../store/Groceries.js';
 
@@ -13,9 +13,8 @@ const id = route.params.id
 const grocery = ref({...getGroceryById(id).value})
 
 const editGrocery = grocery => {
-    addGrocery(grocery);
+    updateGrocery(grocery);
     router.push({ name: 'Home' });
-
 }
 
 console.log(grocery.value)
